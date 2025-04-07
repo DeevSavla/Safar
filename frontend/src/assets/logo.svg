@@ -1,0 +1,23 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#56288A" />
+      <stop offset="100%" stop-color="#864BD8" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="50" fill="white" filter="url(#shadow)" />
+  
+  <!-- Map pin -->
+  <path d="M60 25C49.5066 25 41 33.5066 41 44C41 58.5 60 85 60 85C60 85 79 58.5 79 44C79 33.5066 70.4934 25 60 25ZM60 52C55.5817 52 52 48.4183 52 44C52 39.5817 55.5817 36 60 36C64.4183 36 68 39.5817 68 44C68 48.4183 64.4183 52 60 52Z" fill="url(#gradient)" />
+  
+  <!-- Dotted path - journey illustration -->
+  <path d="M22 77C22 77 35 65 45 70C55 75 65 85 80 80C95 75 98 85 98 85" stroke="url(#gradient)" stroke-width="3" stroke-dasharray="6 3" stroke-linecap="round" />
+  
+  <!-- Small airplane silhouette -->
+  <path d="M98 85L92 81L88 85L98 85Z" fill="url(#gradient)" />
+</svg> 

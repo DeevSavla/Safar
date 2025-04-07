@@ -1,0 +1,7 @@
+venv/
+.env
+C:\Users\pradi\Documents\Codeshastra\ai-service\.env
+dynamic_chat_itinerary.txt
+gen_itinerary.txt
+places_response.txt
+transport_costs.txt
