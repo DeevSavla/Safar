@@ -30,6 +30,7 @@ app.use(
       "https://safar-ai.onrender.com",
       "http://127.0.0.1:5174",
       "http://127.0.0.1:5173",
+      "https://safar-swart.vercel.app",
       "*",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
