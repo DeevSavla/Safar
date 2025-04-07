@@ -5,7 +5,7 @@ import api from './api';
  */
 
 // Define the AI service URL
-const AI_SERVICE_URL = 'http://localhost:8000/api/ai';
+const AI_SERVICE_URL = "https://safar-ai.onrender.com/api/ai";
 
 /**
  * Edit an itinerary using AI

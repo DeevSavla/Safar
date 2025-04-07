@@ -274,7 +274,7 @@ function ItineraryDetails() {
     setLocalError(loadingMessage);
     
     // Define the AI service URL
-    const AI_SERVICE_URL = 'http://localhost:8000/api/ai';
+    const AI_SERVICE_URL = "https://safar-ai.onrender.com/api/ai";
     
     console.log("Making API call to generate itinerary using axios");
     // Make API call to generate itinerary using the api instance with auth headers and increased timeout

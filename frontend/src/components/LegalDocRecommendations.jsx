@@ -17,10 +17,13 @@ function LegalDocRecommendations({ source, destination }) {
       
       try {
         // Make API call to the legal documents endpoint
-        const response = await axios.post('http://localhost:8000/api/ai/legal-docs', {
-          source,
-          destination
-        });
+        const response = await axios.post(
+          "https://safar-ai.onrender.com/api/ai/legal-docs",
+          {
+            source,
+            destination,
+          }
+        );
         
         // Get the response data
         const responseData = response.data;

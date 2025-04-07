@@ -562,11 +562,14 @@ class ItineraryController {
       const session_id = `itinerary_${itineraryId}_${Date.now()}`;
       
       // Call the AI service
-      const aiResponse = await axios.post('http://localhost:8000/api/ai/edit-itinerary', {
-        session_id,
-        current_itinerary: itinerary,
-        message
-      });
+      const aiResponse = await axios.post(
+        "https://safar-ai.onrender.com/api/ai/edit-itinerary",
+        {
+          session_id,
+          current_itinerary: itinerary,
+          message,
+        }
+      );
       
       // Parse and clean the AI response
       try {
@@ -706,10 +709,13 @@ class ItineraryController {
           const session_id = `itinerary_suggestions_${itineraryId}_${Date.now()}`;
           
           // Call the AI service to generate suggestions
-          const aiResponse = await axios.post('http://localhost:8000/api/ai/generate-suggestions', {
-            session_id,
-            itinerary: itinerary
-          });
+          const aiResponse = await axios.post(
+            "https://safar-ai.onrender.com/api/ai/generate-suggestions",
+            {
+              session_id,
+              itinerary: itinerary,
+            }
+          );
           
           if (aiResponse.data && aiResponse.data.suggestions) {
             suggestions = aiResponse.data.suggestions;
