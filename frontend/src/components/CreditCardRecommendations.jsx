@@ -19,7 +19,7 @@ function CreditCardRecommendations({ destination }) {
       
       try {
         // Try both environment variable options
-        const apiKey = import.meta.env.VITE_GEMINI_KEY || import.meta.env.GEMINI_KEY || "AIzaSyCMwuKcohq5uYsjFnMTddXSm0JRwXusPXk";
+        const apiKey = import.meta.env.VITE_GEMINI_KEY;
         if (!apiKey) {
           throw new Error("Missing Gemini API key");
         }

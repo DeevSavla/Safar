@@ -56,7 +56,7 @@ function DayPlanner() {
 
     // First, get the itinerary for context with proper authentication
     axios
-      .get(`${import.meta.env.NODE_API_URL}/api/itineraries/${id}`, {
+      .get(`${import.meta.env.VITE_NODE_API_URL}/api/itineraries/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -76,7 +76,7 @@ function DayPlanner() {
 
         // Now, directly fetch the day data from the backend
         return axios.get(
-          `${import.meta.env.NODE_API_URL}/api/itineraries/days/${dayId}`,
+          `${import.meta.env.VITE_NODE_API_URL}/api/itineraries/days/${dayId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -281,7 +281,7 @@ function DayPlanner() {
     axios
       .post(
         `${
-          import.meta.env.NODE_API_URL
+          import.meta.env.VITE_NODE_API_URL
         }/api/itineraries/days/${dayId}/activities`,
         activityData,
         {
@@ -329,7 +329,7 @@ function DayPlanner() {
     axios
       .delete(
         `${
-          import.meta.env.NODE_API_URL
+          import.meta.env.VITE_NODE_API_URL
         }/api/itineraries/activities/${activityId}`,
         {
           headers: {

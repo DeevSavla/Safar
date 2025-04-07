@@ -130,7 +130,7 @@ const DayComments = ({ dayId, itineraryId }) => {
       return;
     }
 
-    const socketInstance = io(`${import.meta.env.NODE_API_URL}`, {
+    const socketInstance = io(`${import.meta.env.VITE_NODE_API_URL}`, {
       auth: { token: authToken },
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,

@@ -32,7 +32,7 @@ function ItinerarySuggestions({ itineraryId, isOpen, setIsOpen }) {
       // Make API call to get suggestions with proper authentication
       const response = await axios.get(
         `${
-          import.meta.env.NODE_API_URL
+          import.meta.env.VITE_NODE_API_URL
         }/api/itineraries/${itineraryId}/suggestions${
           refresh ? "?refresh=true" : ""
         }`,

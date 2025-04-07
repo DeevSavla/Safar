@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Define the API URL with a fallback in case the environment variable is not defined
-const API_URL = import.meta.env.NODE_API_URL ? `${import.meta.env.NODE_API_URL}/api` : "http://localhost:5000/api";
+const API_URL = `${import.meta.env.VITE_NODE_API_URL}/api`;
 
 console.log(API_URL);
 
