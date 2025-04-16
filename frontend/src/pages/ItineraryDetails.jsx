@@ -88,6 +88,8 @@ function ItineraryDetails() {
         const parsedEndDate = typeof endDate === 'string' ? parseISO(endDate) : new Date(endDate);
         endDate = format(parsedEndDate, 'yyyy-MM-dd');
       }
+
+      console.log('Itinerary data:', itinerary);
       
       setEditData({
         title: itinerary.title || '',
@@ -1036,52 +1038,32 @@ function ItineraryDetails() {
       )}
 
       {/* Daily Plan section */}
-      <motion.div
-        className="mb-8"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 0.5, type: "tween" }}
-      >
+      <div className="mb-8">
         <div className="flex justify-between items-center mb-4">
-          <motion.h2
-            className="text-2xl font-bold text-gray-800 flex items-center"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 0.5, type: "tween" }}
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 0.5, type: "tween" }}
+          <h2 className="text-2xl font-bold text-gray-800 flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 mr-2 text-[#56288A]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 mr-2 text-[#56288A]"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-            </motion.div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
             Daily Plan
-          </motion.h2>
-          <motion.div
-            className="flex space-x-2"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 0.5, type: "tween" }}
-          >
-            <motion.button
+          </h2>
+          <div className="flex space-x-2">
+            <button
               onClick={handleRenumberDays}
               className="bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-2 rounded-lg hover:from-green-700 hover:to-green-600 disabled:opacity-60 flex items-center shadow-md"
               disabled={
                 isLoading || !itinerary?.days || itinerary.days.length < 2
               }
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1092,14 +1074,11 @@ function ItineraryDetails() {
                 <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
               </svg>
               Renumber Days
-            </motion.button>
-            <motion.button
+            </button>
+            <button
               onClick={generateInitialDays}
               className="bg-gradient-to-r from-[#56288A] to-[#864BD8] text-white px-4 py-2 rounded-lg hover:from-[#6b339e] hover:to-[#9562e6] disabled:opacity-60 flex items-center shadow-md"
               disabled={isAILoading}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1116,14 +1095,11 @@ function ItineraryDetails() {
                 />
               </svg>
               Generate with AI
-            </motion.button>
-            <motion.button
+            </button>
+            <button
               onClick={handleAddDay}
               className="bg-white border border-gray-300 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-50 hover:border-gray-400 disabled:opacity-60 flex items-center shadow-sm"
               disabled={isAILoading}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1140,21 +1116,13 @@ function ItineraryDetails() {
                 />
               </svg>
               Add Day
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         </div>
 
         {!itinerary?.days || itinerary.days.length === 0 ? (
-          <motion.div
-            className="bg-white rounded-xl shadow-lg p-8 text-center mb-8 border border-gray-100"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 0.5, type: "tween" }}
-          >
-            <motion.div
-              className="inline-block p-4 bg-indigo-50 rounded-full mb-4"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 0.5, type: "tween" }}
-            >
+          <div className="bg-white rounded-xl shadow-lg p-8 text-center mb-8 border border-gray-100">
+            <div className="inline-block p-4 bg-indigo-50 rounded-full mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-12 w-12 text-[#56288A]"
@@ -1169,35 +1137,18 @@ function ItineraryDetails() {
                   d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                 />
               </svg>
-            </motion.div>
-            <motion.h3
-              className="text-xl font-medium text-gray-800 mb-4"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 0.5, type: "tween" }}
-            >
+            </div>
+            <h3 className="text-xl font-medium text-gray-800 mb-4">
               No Days Added Yet
-            </motion.h3>
-            <motion.p
-              className="text-gray-600 mb-6 max-w-md mx-auto"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 0.5, type: "tween" }}
-            >
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-md mx-auto">
               Start planning your trip by generating days with AI or adding them
               manually to your itinerary.
-            </motion.p>
-            <motion.div
-              className="flex justify-center space-x-3"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 0.5, type: "tween" }}
-            >
-              <motion.button
+            </p>
+            <div className="flex justify-center space-x-3">
+              <button
                 onClick={generateInitialDays}
-                className="bg-gradient-to-r from-[#56288A] to-[#864BD8] text-white px-6 py-2 rounded-lg flex items-center shadow-md"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                }}
-                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-[#56288A] to-[#864BD8] text-white px-6 py-2 rounded-lg flex items-center shadow-md hover:from-[#6b339e] hover:to-[#9562e6]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1214,15 +1165,10 @@ function ItineraryDetails() {
                   />
                 </svg>
                 Generate with AI
-              </motion.button>
-              <motion.button
+              </button>
+              <button
                 onClick={handleAddDay}
-                className="bg-white border border-gray-300 text-gray-800 px-6 py-2 rounded-lg flex items-center shadow-sm"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                }}
-                whileTap={{ scale: 0.95 }}
+                className="bg-white border border-gray-300 text-gray-800 px-6 py-2 rounded-lg flex items-center shadow-sm hover:bg-gray-50"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1239,27 +1185,19 @@ function ItineraryDetails() {
                   />
                 </svg>
                 Add Day
-              </motion.button>
-            </motion.div>
-          </motion.div>
+              </button>
+            </div>
+          </div>
         ) : (
-          <motion.div
-            className="bg-white rounded-xl shadow-lg overflow-hidden mb-8 border border-gray-100"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 0.5, type: "tween" }}
-          >
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8 border border-gray-100">
             <ul className="divide-y divide-gray-200">
               {itinerary.days
                 .slice() // Create a copy to avoid mutating the original array
                 .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
                 .map((day, index) => (
-                  <motion.li
+                  <li
                     key={day.id}
                     className="group hover:bg-gradient-to-r hover:from-indigo-50/50 hover:to-purple-50/50 transition-all duration-300"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 0.5, type: "tween" }}
-                    whileHover={{ scale: 1.01 }}
                   >
                     <Link
                       to={`/itineraries/${id}/days/${day.id}`}
@@ -1267,12 +1205,9 @@ function ItineraryDetails() {
                     >
                       <div className="flex justify-between items-center">
                         <div className="flex items-center">
-                          <motion.div
-                            className="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-full mr-4 text-[#56288A] font-bold text-lg"
-                            whileHover={{ scale: 1.1, rotate: 5 }}
-                          >
+                          <div className="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-full mr-4 text-[#56288A] font-bold text-lg">
                             {index + 1}
-                          </motion.div>
+                          </div>
                           <div>
                             <h3 className="text-lg font-medium text-gray-800 group-hover:text-[#56288A]">
                               Day {index + 1}
@@ -1318,10 +1253,7 @@ function ItineraryDetails() {
                             </svg>
                             {Array.isArray(day.activities) ? day.activities.length : 0} Activities
                           </span>
-                          <motion.div
-                            className="h-8 w-8 flex items-center justify-center rounded-full bg-white shadow-sm group-hover:bg-[#56288A] group-hover:text-white transition-all duration-300"
-                            whileHover={{ scale: 1.2, rotate: 90 }}
-                          >
+                          <div className="h-8 w-8 flex items-center justify-center rounded-full bg-white shadow-sm group-hover:bg-[#56288A] group-hover:text-white transition-all duration-300">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="h-4 w-4 text-gray-500 group-hover:text-white"
@@ -1334,16 +1266,17 @@ function ItineraryDetails() {
                                 clipRule="evenodd"
                               />
                             </svg>
-                          </motion.div>
+                          </div>
                         </div>
                       </div>
                     </Link>
-                  </motion.li>
+                  </li>
                 ))}
             </ul>
-          </motion.div>
+          </div>
         )}
-      </motion.div>
+      </div>
+      
     </div>
   );
 }
